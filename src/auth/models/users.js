@@ -11,8 +11,6 @@ const users = new mongoose.Schema({
   password: { type: String, required: true },
 });
 
-// Adds a virtual field to the schema. We can see it, but it never persists
-// So, on every user object ... this.token is now readable!
 users.virtual('token').get(function () {
   let tokenObject = {
     username: this.username,
